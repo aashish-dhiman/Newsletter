@@ -4,8 +4,7 @@
   "description": "",
   "default": "app.js",
   "scripts": {
-    "start": "parcel index.html",
-    "build": "parcel build index.html"
+    "start": "node app.js"
   },
   "author": "",
   "license": "ISC",
