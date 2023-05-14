@@ -65,3 +65,5 @@ app.post("/fail", function (req, res) {
 app.listen(process.env.PORT || 1234, () => {
     console.log("Server running on Port 1234");
 });
+
+module.exports = app;
