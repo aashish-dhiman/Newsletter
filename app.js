@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const request = require("request");
 const https = require("https");
+require("dotenv").config();
 
 const app = express();
 app.use(express.static("public"));
@@ -11,9 +12,9 @@ app.use(
     })
 );
 
-const KEY = "ced14f1cd204418518cf43bb18bde513-us21";
-const listID = "e26698ec06";
-
+const KEY = process.env.MAILCHIMP_API_KEY;
+const listID = process.env.MAILCHIMP_LIST_ID;
+console.log(KEY, listID);
 app.get("/", function (req, res) {
     res.sendFile(__dirname + "/signup.html");
 });
