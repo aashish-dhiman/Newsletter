@@ -5,7 +5,16 @@ const https = require("https");
 require("dotenv").config();
 
 const app = express();
-app.use(express.static("public"));
+app.use(
+    express.static("public", {
+        // Specify MIME type explicitly for CSS files
+        setHeaders: (res, path, stat) => {
+            if (path.endsWith(".css")) {
+                res.setHeader("Content-Type", "text/css");
+            }
+        },
+    })
+);
 app.use(
     bodyParser.urlencoded({
         extended: true,
