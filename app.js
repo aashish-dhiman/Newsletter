@@ -6,7 +6,7 @@ require("dotenv").config();
 
 const app = express();
 app.use(
-    express.static(process.cwd() + "/public", {
+    express.static(__dirname + "/public", {
         // Specify MIME type explicitly for CSS files
         setHeaders: (res, path, stat) => {
             if (path.endsWith(".css")) {
